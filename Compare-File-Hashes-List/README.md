@@ -1,4 +1,4 @@
-# PowerShell Script To Compare Large Lists Of File Hashes (MD5, SHA-1, SHA-256)
+# PowerShell Script To Compare Large Lists Of File Hashes (MD5, SHA-1, SHA-256, SHA-384, SHA-512)
 
 Using tools like [Tripwire](http://www.tripwire.org/), [MD5DEEP](http://md5deep.sourceforge.net/) and [MD5SUM](http://en.wikipedia.org/wiki/Md5sum) to hash files to detect file system changes is a well-known security technique.
 
