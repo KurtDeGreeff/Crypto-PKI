@@ -136,7 +136,7 @@ This requires PowerShell 5.0 or later. You also have to edit the script to make 
 ## KeePass Security Best Practices
 For a list of security best practices for KeePass, see [this article](https://cyber-defense.sans.org/blog/2015/08/13/powershell-for-keepass-sample-script), which also gives sample PowerShell code for scripting the management of KeePass.
 
-Of course, KeePass and PowerShell are only as secure as the host computer on which they are running. For a SANS Institute training course on Windows security, please consider attending my six-day "[Securing Windows and PowerShell Automation (SEC505)](https://sans.org/sec505)" course online or at a SANS conference. Hope to see you there! — @JasonFossen
+Of course, KeePass and PowerShell are only as secure as the host computer on which they are running. For a SANS Institute training course on Windows security, please consider attending my six-day "[Securing Windows and PowerShell Automation (SEC505)](https://sans.org/sec505)" course online or at a SANS conference. Hope to see you there! — [@JasonFossen](https://twitter.com/JasonFossen)
 
 ## Update History
 
