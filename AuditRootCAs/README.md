@@ -1,4 +1,4 @@
-# Hunt For Evil Trusted Root CA Certificates
+# Hunt For Evil Trusted Root CA Certificates And Remove Them
 
 Hackers and malware can inject fake trusted root Certification Authority (CA) certificates into victim computers.  This can trick victim computers and users into trusting bad code signatures, bad SSL web sites, bad e-mail signatures, and anything else which depends on certificates or PKI.
 
@@ -38,6 +38,11 @@ The script can be distributed through Group Policy as a startup script, schedule
 The script is more-or-less just a skeleton script to help you get started.  It's pretty simple when you examine the code.  Feel free to add error handling, logging, security, etc. 
 
 Once you've gathered the CSV output files from your desired computers, review any files whose size is larger than zero, i.e., files which indicate the presence of suspicious root CA certificates.
+
+## Remove-TrustedRootCA.ps1
+If you discover unwanted root CA certificates, they can be deleted with the Remove-TrustedRootCA.ps1 script. Edit one variable near the top of the script ($BadCerts) which will contain the SHA1 hashes of the certificates to delete. Run the script with administrative or system privileges, perhaps as a Group Policy startup script or through PowerShell remoting. 
+
+When it deletes an unwanted certificate, it writes to the local Application event log (Event ID = 9019).
 
 ## Threats and Recommendations
 Attackers may try to delete or corrupt the existing CSV files to prevent access.  It's best to store the files in a shared folder whose NTFS permissions only allow the following permissions:
