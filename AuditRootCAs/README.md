@@ -27,11 +27,15 @@ Once you have a list of trustworthy root CA hashes from some source or another, 
 Keep this text file in a protected shared folder on the network which grants Authenticated Users read-only access. Periodically update the file with any new hashes, remove hashes for root CA certificates which have been compromised, and confirm that the file has not been maliciously altered.  Use NTFS auditing to track attempted changes too.
 
 ## Audit-TrustedRootCA.ps1 Script
-This script will compare the list of CA hashes in the reference file from the shared folder against the list of currently-trusted root CA certificates for the user and computer running the script.  The output is a CSV text file, which can be saved to a shared folder, whose file name indicates the name of the computer, the name of the user, and a timestamp, e.g., LAPTOP47.Administrator.634890196060064770.csv.  The CSV file contains the hashes and names of any root CA certificates trusted by the user and/or computer which are NOT in the list of reference certificates.  The script also writes to the Application event log (Event ID = 9017, Source = RootCertificateAudit).  
+This script will compare the list of CA hashes in the reference file from the shared folder against the list of currently-trusted root CA certificates for the user and computer running the script.  The output is a CSV text file, which can be saved to a shared folder, whose file name indicates the name of the computer, the name of the user, and a timestamp, e.g., LAPTOP47.Administrator.634890196060064770.csv.  
+
+The CSV file contains the hashes and names of any root CA certificates trusted by the user and/or computer which are NOT in the list of reference certificates.  
+
+The script also writes to the Application event log (Event ID = 9017, Source = RootCertificateAudit).  
 
 The script can be distributed through Group Policy as a startup script, scheduled job, or executed through PowerShell remoting.  Don't forget to change the default execution policy for PowerShell too.  The user account under which the script runs will also need read access to the file of reference hashes and also write access to the folder where the output CSV file will be created.  The -OutputPath parameter should take a UNC network path to a shared folder to consolidate the readings from many machines.  A Distributed File System (DFS) share can be used for scalability.  
 
-The script is more-or-less just a skeleton script to help you get started.  It's pretty simple when you examine the code.  Feel free to add error handling, logging, security, etc.
+The script is more-or-less just a skeleton script to help you get started.  It's pretty simple when you examine the code.  Feel free to add error handling, logging, security, etc. 
 
 Once you've gathered the CSV output files from your desired computers, review any files whose size is larger than zero, i.e., files which indicate the presence of suspicious root CA certificates.
 
